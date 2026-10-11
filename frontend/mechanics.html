@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelSOS | Find Mechanics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-layout">
+    <aside class="sidebar">
+        <a class="brand" href="index.html">
+            <div class="brand-icon">🚘</div>
+            <div><h2>TravelSOS</h2><p>Roadside Intelligence</p></div>
+        </a>
+        <div class="nav-label">MAIN MENU</div>
+        <nav>
+            <a href="index.html"><span class="nav-icon">▦</span> Dashboard</a>
+            <a href="report.html"><span class="nav-icon">＋</span> Report Breakdown</a>
+            <a class="active" href="mechanics.html"><span class="nav-icon">🔧</span> Find Mechanics</a>
+            <a href="records.html"><span class="nav-icon">▤</span> Breakdown Records</a>
+        </nav>
+        <div class="sidebar-bottom">
+            <div class="connection-card">
+                <strong><span class="online-dot"></span>System Status</strong>
+                <p id="connectionStatus">Checking API connection...</p>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div class="page-heading">
+                <h1>Find Mechanics</h1>
+                <p>Explore repair services and recommendations for your vehicle problem.</p>
+            </div>
+            <div class="topbar-badge">🧰 Service Directory</div>
+        </header>
+
+        <section class="welcome-banner">
+            <div>
+                <h2>The right help for your vehicle.</h2>
+                <p>Choose a problem category to find a suitable mechanic from the TravelSOS sample directory.</p>
+            </div>
+            <div class="banner-symbol">🔧</div>
+        </section>
+
+        <section class="panel" style="margin-bottom:24px;">
+            <div class="panel-header">
+                <div>
+                    <h3>Smart Mechanic Recommendation</h3>
+                    <p>Select the problem category to request a recommendation.</p>
+                </div>
+                <span class="panel-tag">RECOMMENDATION</span>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="problemFilter">Vehicle problem</label>
+                    <select id="problemFilter">
+                        <option value="General">General repair</option>
+                        <option value="Engine">Engine repair</option>
+                        <option value="Battery">Battery service</option>
+                        <option value="Tyre">Tyre repair</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Recommendation action</label>
+                    <button type="button" class="primary-btn" onclick="recommendMechanic()">
+                        Find Recommended Mechanic →
+                    </button>
+                </div>
+            </div>
+
+            <div id="recommendation" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <div>
+                    <h3>Available Mechanics</h3>
+                    <p>Compare the sample services, distances and estimated costs.</p>
+                </div>
+                <span class="panel-tag">DIRECTORY</span>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mechanic / Garage</th>
+                            <th>Speciality</th>
+                            <th>Distance</th>
+                            <th>Rating</th>
+                            <th>Estimated Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mechanicsBody">
+                        <tr><td colspan="5">Loading mechanics...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-note">
+                Distances, ratings, and costs are sample values for demonstration.
+                Verify service availability and pricing directly before relying on them.
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            TravelSOS · Mechanic Recommendation Centre
+        </footer>
+    </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

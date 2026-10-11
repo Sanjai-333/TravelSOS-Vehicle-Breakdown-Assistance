@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelSOS | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="app-layout">
+
+    <aside class="sidebar">
+        <a class="brand" href="index.html">
+            <div class="brand-icon">🚘</div>
+            <div>
+                <h2>TravelSOS</h2>
+                <p>Roadside Intelligence</p>
+            </div>
+        </a>
+
+        <div class="nav-label">MAIN MENU</div>
+        <nav>
+            <a class="active" href="index.html"><span class="nav-icon">▦</span> Dashboard</a>
+            <a href="report.html"><span class="nav-icon">＋</span> Report Breakdown</a>
+            <a href="mechanics.html"><span class="nav-icon">🔧</span> Find Mechanics</a>
+            <a href="records.html"><span class="nav-icon">▤</span> Breakdown Records</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="connection-card">
+                <strong><span class="online-dot"></span>System Status</strong>
+                <p id="connectionStatus">Checking API connection...</p>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div class="page-heading">
+                <h1>Dashboard Overview</h1>
+                <p>Monitor roadside assistance and vehicle breakdown activity.</p>
+            </div>
+            <div class="topbar-badge">🛡️ Smart Assistance Platform</div>
+        </header>
+
+        <section class="welcome-banner">
+            <div>
+                <h2>Your journey deserves a safer road.</h2>
+                <p>
+                    Report vehicle problems, discover nearby mechanics, and manage
+                    breakdown information from one intelligent platform.
+                </p>
+                <div class="button-row">
+                    <a href="report.html" class="primary-btn">+ Report Breakdown</a>
+                    <a href="mechanics.html" class="secondary-btn">Find a Mechanic →</a>
+                </div>
+            </div>
+            <div class="banner-symbol">🚗</div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span class="stat-label">Total Breakdowns</span>
+                    <div class="stat-icon">🚘</div>
+                </div>
+                <h2 id="totalBreakdowns">0</h2>
+                <div class="stat-foot">All recorded reports</div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span class="stat-label">Available Mechanics</span>
+                    <div class="stat-icon">🔧</div>
+                </div>
+                <h2 id="totalMechanics">0</h2>
+                <div class="stat-foot"><span class="teal-text">Ready to assist</span></div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span class="stat-label">High Priority</span>
+                    <div class="stat-icon">🟠</div>
+                </div>
+                <h2 id="highPriority">0</h2>
+                <div class="stat-foot">Urgent reports recorded</div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span class="stat-label">API Connection</span>
+                    <div class="stat-icon">🌐</div>
+                </div>
+                <h2 id="apiStatus" style="font-size:21px;">Checking...</h2>
+                <div class="stat-foot">R backend status</div>
+            </article>
+        </section>
+
+        <section class="content-grid">
+            <article class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>Breakdown Activity</h3>
+                        <p>Overview of reported vehicle issues</p>
+                    </div>
+                    <span class="panel-tag">OVERVIEW</span>
+                </div>
+                <div class="chart-container">
+                    <canvas id="breakdownChart"></canvas>
+                </div>
+            </article>
+
+            <article class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>Quick Actions</h3>
+                        <p>Access important features</p>
+                    </div>
+                </div>
+                <div class="action-list">
+                    <a class="action-link" href="report.html">
+                        <div class="action-icon">🆘</div>
+                        <div>
+                            <strong>Report a Breakdown</strong>
+                            <small>Submit vehicle issue details</small>
+                        </div>
+                    </a>
+                    <a class="action-link" href="mechanics.html">
+                        <div class="action-icon">🧰</div>
+                        <div>
+                            <strong>Find Nearby Mechanics</strong>
+                            <small>Explore service recommendations</small>
+                        </div>
+                    </a>
+                    <a class="action-link" href="records.html">
+                        <div class="action-icon">📋</div>
+                        <div>
+                            <strong>View Breakdown Records</strong>
+                            <small>Review previous submissions</small>
+                        </div>
+                    </a>
+                </div>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <div>
+                    <h3>Breakdown Type Distribution</h3>
+                    <p>Distribution of recorded problem categories</p>
+                </div>
+                <span class="panel-tag">ANALYTICS</span>
+            </div>
+            <div class="chart-container" style="max-width:420px;margin:auto;">
+                <canvas id="problemChart"></canvas>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            TravelSOS · Intelligent Vehicle Breakdown Assistance · Powered by R
+        </footer>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

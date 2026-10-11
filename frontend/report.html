@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelSOS | Report Breakdown</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-layout">
+    <aside class="sidebar">
+        <a class="brand" href="index.html">
+            <div class="brand-icon">🚘</div>
+            <div><h2>TravelSOS</h2><p>Roadside Intelligence</p></div>
+        </a>
+        <div class="nav-label">MAIN MENU</div>
+        <nav>
+            <a href="index.html"><span class="nav-icon">▦</span> Dashboard</a>
+            <a class="active" href="report.html"><span class="nav-icon">＋</span> Report Breakdown</a>
+            <a href="mechanics.html"><span class="nav-icon">🔧</span> Find Mechanics</a>
+            <a href="records.html"><span class="nav-icon">▤</span> Breakdown Records</a>
+        </nav>
+        <div class="sidebar-bottom">
+            <div class="connection-card">
+                <strong><span class="online-dot"></span>System Status</strong>
+                <p id="connectionStatus">Checking API connection...</p>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div class="page-heading">
+                <h1>Report Breakdown</h1>
+                <p>Provide your vehicle details to record a roadside issue.</p>
+            </div>
+            <div class="topbar-badge">🆘 Roadside Support</div>
+        </header>
+
+        <section class="welcome-banner">
+            <div>
+                <h2>Need help on the road?</h2>
+                <p>Submit the problem and location details. TravelSOS will record your request and help you find a suitable mechanic.</p>
+            </div>
+            <div class="banner-symbol">🛠️</div>
+        </section>
+
+        <section class="content-grid">
+            <article class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>Vehicle Information</h3>
+                        <p>Enter the breakdown details below.</p>
+                    </div>
+                    <span class="panel-tag">NEW REPORT</span>
+                </div>
+
+                <form id="breakdownForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="vehicle">Vehicle type / model</label>
+                            <input id="vehicle" name="vehicle" type="text"
+                                   placeholder="e.g. Hyundai i20" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="problem">Problem category</label>
+                            <select id="problem" name="problem" required>
+                                <option value="">Select a problem</option>
+                                <option value="Engine">Engine problem</option>
+                                <option value="Battery">Battery problem</option>
+                                <option value="Tyre">Tyre problem</option>
+                                <option value="General">General repair</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="location">Breakdown location</label>
+                            <input id="location" name="location" type="text"
+                                   placeholder="Enter your area or nearby landmark" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="urgency">Urgency level</label>
+                            <select id="urgency" name="urgency" required>
+                                <option value="Normal">Normal — routine assistance</option>
+                                <option value="High">High — urgent roadside help</option>
+                                <option value="Critical">Critical — immediate safety concern</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="info-note">
+                        <strong>Safety first:</strong> If your vehicle is in an unsafe location,
+                        move to a safe place if possible and contact local emergency services
+                        when necessary. This demo does not dispatch emergency services.
+                    </div>
+
+                    <div class="button-row">
+                        <button class="primary-btn" type="submit">Submit Breakdown Report →</button>
+                        <button class="secondary-btn" type="reset">Clear Form</button>
+                    </div>
+                    <div id="formMessage" role="status" aria-live="polite"></div>
+                </form>
+            </article>
+
+            <article class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>How It Works</h3>
+                        <p>Three simple steps</p>
+                    </div>
+                </div>
+                <div class="action-list">
+                    <div class="action-link">
+                        <div class="action-icon">①</div>
+                        <div>
+                            <strong>Submit your details</strong>
+                            <small>Enter the vehicle issue and location.</small>
+                        </div>
+                    </div>
+                    <div class="action-link">
+                        <div class="action-icon">②</div>
+                        <div>
+                            <strong>Get a recommendation</strong>
+                            <small>Explore mechanics suited to the issue.</small>
+                        </div>
+                    </div>
+                    <div class="action-link">
+                        <div class="action-icon">③</div>
+                        <div>
+                            <strong>Review your record</strong>
+                            <small>See the submitted report in your records.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-note">
+                    TravelSOS is a student project demonstration. Mechanic details and estimates
+                    are sample data and are not live service bookings.
+                </div>
+            </article>
+        </section>
+
+        <footer class="site-footer">
+            TravelSOS · Intelligent Vehicle Breakdown Assistance
+        </footer>
+    </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

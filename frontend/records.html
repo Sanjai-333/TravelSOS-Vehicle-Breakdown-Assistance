@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelSOS | Breakdown Records</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-layout">
+    <aside class="sidebar">
+        <a class="brand" href="index.html">
+            <div class="brand-icon">🚘</div>
+            <div><h2>TravelSOS</h2><p>Roadside Intelligence</p></div>
+        </a>
+        <div class="nav-label">MAIN MENU</div>
+        <nav>
+            <a href="index.html"><span class="nav-icon">▦</span> Dashboard</a>
+            <a href="report.html"><span class="nav-icon">＋</span> Report Breakdown</a>
+            <a href="mechanics.html"><span class="nav-icon">🔧</span> Find Mechanics</a>
+            <a class="active" href="records.html"><span class="nav-icon">▤</span> Breakdown Records</a>
+        </nav>
+        <div class="sidebar-bottom">
+            <div class="connection-card">
+                <strong><span class="online-dot"></span>System Status</strong>
+                <p id="connectionStatus">Checking API connection...</p>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div class="page-heading">
+                <h1>Breakdown Records</h1>
+                <p>Review breakdown reports submitted through TravelSOS.</p>
+            </div>
+            <div class="topbar-badge">📋 Report History</div>
+        </header>
+
+        <section class="welcome-banner">
+            <div>
+                <h2>Every report, organised in one place.</h2>
+                <p>Review vehicle details, problem categories, reported locations and urgency levels.</p>
+            </div>
+            <div class="banner-symbol">📊</div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span class="stat-label">Recorded Reports</span>
+                    <div class="stat-icon">📋</div>
+                </div>
+                <h2 id="recordCount">—</h2>
+                <div class="stat-foot">Reports returned by the API</div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span class="stat-label">Record Status</span>
+                    <div class="stat-icon">🌐</div>
+                </div>
+                <h2 style="font-size:21px;" id="recordsStatus">Loading...</h2>
+                <div class="stat-foot">Connection to the R backend</div>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <div>
+                    <h3>All Breakdown Reports</h3>
+                    <p>Records retrieved from the TravelSOS API.</p>
+                </div>
+                <button class="primary-btn" type="button" onclick="loadRecords()">
+                    ↻ Refresh Records
+                </button>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vehicle</th>
+                            <th>Problem</th>
+                            <th>Location</th>
+                            <th>Urgency</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recordsBody">
+                        <tr><td colspan="4">Loading records...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-note">
+                Your current R API stores reports in memory. They will be cleared when the API
+                restarts unless persistent database storage is added.
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            TravelSOS · Breakdown History and Reports
+        </footer>
+    </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
